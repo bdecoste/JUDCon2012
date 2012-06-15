@@ -20,9 +20,11 @@
  */
 package org.switchyard.quickstarts.demo.multiapp.consumer;
 
+import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -47,7 +49,8 @@ public final class OrderIntakeClient {
     private static final String ORDERACK_QUEUE_NAME = "OrderReplyQueue";
     private static final String RULES_QUEUE_NAME = "RulesTriggerQueue";
     
-    private static final String IP = "127.5.20.1";
+    private static final String IP = "127.6.58.1";
+    private static final String HOSTNAME = "jboss1-wdecoste1.rhcloud.com";
     
     private static final String[][] TESTS = new String[][] {
         new String[] {"FF0000-ABC-123", "Red"},
@@ -85,7 +88,7 @@ public final class OrderIntakeClient {
     }
     
     public static void testRestCaching() throws Exception {
-	      System.out.println("*** Create a new Order ***");
+	      System.out.println("*** Testing Infinispan Caching via REST ***");
 	      // Create a new order
 	      String newOrder = "<order>"
 	              + "<order-id>1234</order-id>"
@@ -93,7 +96,8 @@ public final class OrderIntakeClient {
 	              + "<quantity>5</quantity>"
 	              + "</order>";
 	      
-	      URL postUrl = new URL("http://" + IP + ":8080/services/caching");
+	      System.out.println("  Sending Order ...");
+	      URL postUrl = new URL("http://" + HOSTNAME + "/services/caching");
 	      //URL postUrl = new URL("http://jboss1-bdecoste20a.dev.rhcloud.com/services/caching");
 	      HttpURLConnection connection = (HttpURLConnection) postUrl.openConnection();
 	      connection.setDoOutput(true);
@@ -104,12 +108,12 @@ public final class OrderIntakeClient {
 	      os.write(newOrder.getBytes());
 	      os.flush();
 	      int response = connection.getResponseCode();
-	      System.out.println("!! response " + response);
+	      System.out.println("  Received response: " + response);
 
     }
     
     public static void testRestJms() throws Exception {
-	      System.out.println("*** Create a new Order ***");
+	      System.out.println("*** Testing JMS via REST ***");
 	      // Create a new order
 	      String newOrder = "<order>"
 	              + "<order-id>1234</order-id>"
@@ -117,18 +121,41 @@ public final class OrderIntakeClient {
 	              + "<quantity>5</quantity>"
 	              + "</order>";
 	      
-	      URL postUrl = new URL("http://" + IP + ":8080/services/jms");
+	      URL postUrl = new URL("http://" + HOSTNAME + "/services/jms");
 	      //URL postUrl = new URL("http://jboss1-bdecoste20a.dev.rhcloud.com/services/jms");
 	      HttpURLConnection connection = (HttpURLConnection) postUrl.openConnection();
 	      connection.setDoOutput(true);
+	      connection.setDoInput(true);
 	      connection.setInstanceFollowRedirects(false);
 	      connection.setRequestMethod("POST");
 	      connection.setRequestProperty("Content-Type", "application/xml");
+	      
 	      OutputStream os = connection.getOutputStream();
 	      os.write(newOrder.getBytes());
 	      os.flush();
 	      int response = connection.getResponseCode();
-	      System.out.println("!! response " + response);
+	      System.out.println("  Received response " + response + " " + connection.getResponseMessage());
+	      
+	      String location = connection.getHeaderField("Location");
+	      System.out.println("  Location: " + location);
+	      
+	      URL getUrl = new URL(location);
+	      connection = (HttpURLConnection) getUrl.openConnection();
+	      connection.setRequestMethod("GET");
+	      System.out.println("Content-Type: " + connection.getContentType());
+
+	      BufferedReader reader = new BufferedReader(new
+	              InputStreamReader(connection.getInputStream()));
+
+	      String line = reader.readLine();
+	      while (line != null)
+	      {
+	         System.out.println(line);
+	         line = reader.readLine();
+	      }
+	      System.out.println("!!!! get response " + connection.getResponseCode());
+	      connection.disconnect();
+
 
   }
     

@@ -1,5 +1,6 @@
 package com.restfully.shop.services;
 
+import org.judcon.CachingService;
 import org.switchyard.quickstarts.demo.multiapp.Order;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -42,8 +43,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Path("/jms")
-public class JmsResource {
-	private AtomicInteger idCounter = new AtomicInteger();
+public class JmsResource {	
+	CachingService caching;
 	
 	Connection conn;
     Session session;
@@ -52,6 +53,7 @@ public class JmsResource {
 
 
 	public JmsResource() {
+		caching = new CachingService();
 	}
 
 	@POST
@@ -59,14 +61,33 @@ public class JmsResource {
 	public Response createOrder(InputStream is) {
 		try {
 			Order order = readOrder(is);
-			System.out.println("!!! POST " + order );
+			System.out.println("--- RESTful JmsResource received a POST containing order: " + order );
+			caching.put(order, Integer.toString(order.getId()));
 			sendMessageOverJMS(order);
-			System.out.println("Created order " + order.getId());
-			return Response.created(URI.create("/jms/" + order.getId()))
+			Response response = Response.created(URI.create("/jms/" + order.getId()))
 					.build();
+			System.out.println("!!! response " + response);
+			return response;
 		} catch (Exception e){
 			throw new RuntimeException(e);
 		}
+	}
+	
+	@GET
+	@Path("{id}")
+	@Produces("application/xml")
+	public StreamingOutput getOrder(@PathParam("id") String id) {
+		System.out.println("!!! GET");
+		final Order order = (Order)caching.get(id);
+		if (order == null) {
+			throw new WebApplicationException(Response.Status.NOT_FOUND);
+		}
+		return new StreamingOutput() {
+			public void write(OutputStream outputStream) throws IOException,
+					WebApplicationException {
+				outputOrder(outputStream, order);
+			}
+		};
 	}
 
 	protected void outputOrder(OutputStream os, Order order)
@@ -118,21 +139,18 @@ public class JmsResource {
             String text = "<orders:submitOrder xmlns:orders=\"urn:switchyard-quickstart-demo:multiapp:1.0\">" + order.toString() + "</orders:submitOrder>";
             message.setText(text);
             producer.send(message);
-            System.out.println("JMS message sent " + message.getText());
+            System.out.println("  RESTful JmsResource send JMS message:  " + message.getText());
             MessageConsumer consumer = session.createConsumer(replyQueue);
             System.out.println("Order submitted ... waiting for reply.");
             BytesMessage reply = (BytesMessage)consumer.receive(3000);
             
             if (reply == null) {
-                System.out.println("No reply received.");
+                System.out.println("  RESTful JmsResource received no reply");
             } else {
                 byte[] buf = new byte[1024];
                 int count = reply.readBytes(buf);
                 String str = new String(buf, 0, count);
-                System.out.println("Received reply" + "\n"
-                        + "----------------------------\n"
-                        + str
-                        + "\n----------------------------");
+                System.out.println("  RESTful JmsResource received JMS reply: " + str);
             }
         } finally {
             if(producer != null) {
