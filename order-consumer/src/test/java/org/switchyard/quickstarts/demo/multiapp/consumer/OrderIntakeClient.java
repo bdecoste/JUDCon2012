@@ -60,11 +60,8 @@ public final class OrderIntakeClient {
    
     public static void main(final String[] args) throws Exception {
     	
-    	if (args[0].equals("rest-caching")) {
-    		System.out.println("------- REST-CACHING -------");
-    		testRestCaching();
-    	} else if (args[0].equals("rest-jms")) {
-    		System.out.println("------- REST-JMS -------");
+    	if (args[0].equals("rest")) {
+    		System.out.println("------- REST -------");
     		testRestJms();
     	} else if (args[0].equals("http")) {
     	
@@ -134,7 +131,7 @@ public final class OrderIntakeClient {
 	      os.write(newOrder.getBytes());
 	      os.flush();
 	      int response = connection.getResponseCode();
-	      System.out.println("  Received response " + response + " " + connection.getResponseMessage());
+	      System.out.println("  Received POST response " + response + " " + connection.getResponseMessage());
 	      
 	      String location = connection.getHeaderField("Location");
 	      System.out.println("  Location: " + location);
@@ -147,13 +144,14 @@ public final class OrderIntakeClient {
 	      BufferedReader reader = new BufferedReader(new
 	              InputStreamReader(connection.getInputStream()));
 
+	      System.out.println("  Received POST response " + response + " " + connection.getResponseMessage());
 	      String line = reader.readLine();
 	      while (line != null)
 	      {
 	         System.out.println(line);
 	         line = reader.readLine();
 	      }
-	      System.out.println("!!!! get response " + connection.getResponseCode());
+	      
 	      connection.disconnect();
 
 
@@ -161,7 +159,9 @@ public final class OrderIntakeClient {
     
     public static void testBpm() throws Exception {
     	
-    	String orderTxt = readFileContent("/home/bdecoste/workspaces/JUDCon/bpm-service/src/test/resources/xml/soap-request.xml");
+    	System.out.println("*** Testing SwitchYard/jBPM via HTTP over Port-Forwarding ***");
+    	
+    	String orderTxt = readFileContent("/home/bdecoste/workspaces/JUDCon2012/bpm-service/src/test/resources/xml/soap-request.xml");
     	
     	HTTPMixIn httpMixIn = new HTTPMixIn();
     	httpMixIn.initialize();
@@ -169,22 +169,26 @@ public final class OrderIntakeClient {
     	// Send a SOAP request and verify the SOAP reply is what we expected
     	String response =  httpMixIn.postString("http://" + IP + ":18001/swydws/ProcessOrder", orderTxt);
     	
-    	System.out.println("Response " + response);
+    	System.out.println("  HTTP Response " + response);
     }
     
     protected static void testHttp() throws Exception {
     	
-    	String orderTxt = readFileContent("/home/bdecoste/workspaces/JUDCon/order-service/src/test/resources/xml/soap-request.xml");
+    	System.out.println("*** Testing SwitchYard via HTTP over Port-Forwarding ***");
+    	
+    	String orderTxt = readFileContent("/home/bdecoste/workspaces/JUDCon2012/order-service/src/test/resources/xml/soap-request.xml");
     	
     	HTTPMixIn httpMixIn = new HTTPMixIn();
     	httpMixIn.initialize();
     	
     	String response = httpMixIn.postString("http://" + IP + ":18001/quickstart-demo-multiapp/OrderService", orderTxt);
     	
-    	System.out.println("Response " + response);
+    	System.out.println("  HTTP Response " + response);
     }
     
     protected static void testRules(String[] data) throws Exception {
+    	
+    	System.out.println("*** Testing SwitchYard/Drools via JMS over Port-Forwarding ***");
     	
     	String[] TEST = {"FF0000-ABC-123", "Red"};
     	
@@ -212,7 +216,9 @@ public final class OrderIntakeClient {
     
     protected static void testJms() throws Exception {
     	
-    	String orderTxt = readFileContent("/home/bdecoste/workspaces/JUDCon/order-consumer/src/test/resources/order.xml");
+    	System.out.println("*** Testing SwitchYard via JMS over Port-Forwarding ***");
+    	
+    	String orderTxt = readFileContent("/home/bdecoste/workspaces/JUDCon2012/order-consumer/src/test/resources/order.xml");
     	
         HornetQMixIn hqMixIn = new HornetQMixIn(false)							
                                     .setHost(IP)
@@ -223,24 +229,18 @@ public final class OrderIntakeClient {
             Session session = hqMixIn.getJMSSession();
             MessageProducer producer = session.createProducer(HornetQMixIn.getJMSQueue(ORDER_QUEUE_NAME));
             
-            System.out.println("Submitting Order" + "\n"
-                    + "----------------------------\n"
-                    + orderTxt
-                    + "\n----------------------------");
+            System.out.println("   Submitting Order via JMS: " + orderTxt);
             producer.send(hqMixIn.createJMSMessage(orderTxt));
             MessageConsumer consumer = session.createConsumer(HornetQMixIn.getJMSQueue(ORDERACK_QUEUE_NAME));
-            System.out.println("Order submitted ... waiting for reply.");
+            System.out.println("   Order submitted ... waiting for reply.");
             BytesMessage reply = (BytesMessage)consumer.receive(3000);
             if (reply == null) {
-                System.out.println("No reply received.");
+                System.out.println("   No reply received.");
             } else {
                 byte[] buf = new byte[1024];
                 int count = reply.readBytes(buf);
                 String str = new String(buf, 0, count);
-                System.out.println("Received reply" + "\n"
-                        + "----------------------------\n"
-                        + str
-                        + "\n----------------------------");
+                System.out.println("   Received Reply via JMS: " + str);
             }
         } finally {
             hqMixIn.uninitialize();

@@ -17,8 +17,13 @@ public class InventoryBean implements org.switchyard.quickstarts.bpm.service.Inv
     
     @Override
     public boolean checkAvailability(Order order) {
-        return inventory.containsKey(order.getItemId().toLowerCase()) &&
+    	System.out.println("InventoryBean checking availability for: " + order);
+        boolean available = inventory.containsKey(order.getItemId().toLowerCase()) &&
                inventory.get(order.getItemId().toLowerCase()) >= order.getQuantity();
+               
+        System.out.println("InventoryBean availability is " + available);
+               
+        return available;
     }
 
 }

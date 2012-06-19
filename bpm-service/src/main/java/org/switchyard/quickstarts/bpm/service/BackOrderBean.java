@@ -12,6 +12,8 @@ public class BackOrderBean implements org.switchyard.quickstarts.bpm.service.Bac
 
     @Override
     public OrderAck hold(Order order) {
+    	System.out.println("BackOrderBean holding: " + order);
+    	
         OrderAck ack = new OrderAck();
         ack.setAccepted(false);
         ack.setOrderId(order.getOrderId());

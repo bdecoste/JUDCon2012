@@ -43,7 +43,7 @@ public class OrderServiceBean implements OrderService {
     @Override
     public OrderAck submitOrder(Order order) {
     	
-    	System.out.println("--- OrderServiceBean received JMS message for: " + order);
+    	System.out.println("--- OrderServiceBean received submitOrder for: " + order);
     	
         // Create an order ack
         OrderAck orderAck = new OrderAck().setOrderId(order.getOrderId());

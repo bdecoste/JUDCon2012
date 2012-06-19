@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench progressCount="27" version="2.0">
 <workbenchAdvisor/>
-<window height="912" width="1414" x="121" y="117">
+<window height="912" width="1414" x="277" y="148">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -13,7 +13,7 @@
 <coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="100" y="22"/>
 <coolItem id="org.eclipse.dltk.tcl.ui.debug.consoleActionSet" itemType="typeToolBarContribution" x="40" y="22"/>
 <coolItem id="org.eclipse.jst.j2ee.J2eeMainActionSet" itemType="typeToolBarContribution" x="70" y="22"/>
-<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="54" y="22"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="120" y="22"/>
 <coolItem id="org.eclipse.wst.server.ui.internal.webbrowser.actionSet" itemType="typeToolBarContribution" x="32" y="22"/>
 <coolItem id="org.eclipse.wst.ws.explorer.explorer" itemType="typeToolBarContribution" x="32" y="22"/>
 <coolItem id="org.jboss.tools.jst.web.ui.server.actionSet" itemType="typeToolBarContribution" x="134" y="22"/>
@@ -26,7 +26,7 @@
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="152" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.wst.wsdl.ui.internal.WSDLEditor" itemType="typePlaceholder" x="94" y="22"/>
-<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.jboss.tools.central.editors.JBossCentralEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="32" y="22"/>
@@ -36,10 +36,31 @@
 <editorArea activeWorkbook="DefaultEditorWorkbook">
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+</presentation>
 </folder>
 </info>
 </editorArea>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="OrderIntakeClient.java" partName="OrderIntakeClient.java" path="/Volumes/linux/workspaces/JUDCon2012/order-consumer/src/test/java/org/switchyard/quickstarts/demo/multiapp/consumer/OrderIntakeClient.java" title="OrderIntakeClient.java" tooltip="order-consumer/src/test/java/org/switchyard/quickstarts/demo/multiapp/consumer/OrderIntakeClient.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/order-consumer/src/test/java/org/switchyard/quickstarts/demo/multiapp/consumer/OrderIntakeClient.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="6001" selectionTopPixel="1282"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JmsResource.java" partName="JmsResource.java" path="/Volumes/linux/workspaces/JUDCon2012/restful-order/src/main/java/com/restfully/shop/services/JmsResource.java" title="JmsResource.java" tooltip="restful-order/src/main/java/com/restfully/shop/services/JmsResource.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/restful-order/src/main/java/com/restfully/shop/services/JmsResource.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2546" selectionTopPixel="293"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="OrderServiceBean.java" partName="OrderServiceBean.java" path="/Volumes/linux/workspaces/JUDCon2012/order-service/src/main/java/org/switchyard/quickstarts/demo/multiapp/service/OrderServiceBean.java" title="OrderServiceBean.java" tooltip="order-service/src/main/java/org/switchyard/quickstarts/demo/multiapp/service/OrderServiceBean.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/order-service/src/main/java/org/switchyard/quickstarts/demo/multiapp/service/OrderServiceBean.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1874" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CachingService.java" partName="CachingService.java" path="/Volumes/linux/workspaces/JUDCon2012/caching/src/main/java/org/judcon/CachingService.java" title="CachingService.java" tooltip="caching/src/main/java/org/judcon/CachingService.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/caching/src/main/java/org/judcon/CachingService.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="11" selectionOffset="1326" selectionTopPixel="0"/>
+</editor>
 </editors>
 <views>
 <view id="org.eclipse.ui.navigator.ProjectExplorer" partName="Project Explorer">
@@ -47,8 +68,7 @@
 </view>
 <view id="org.eclipse.ui.views.AllMarkersView" partName="Markers">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.allSeverityField" categoryGroup="org.eclipse.ui.ide.type" markerContentGenerator="org.eclipse.ui.ide.allMarkersGenerator" partName="Markers">
-<expanded>
-<category IMemento.internal.id="Java Problems (18 items)"/>
+<expanded>&#x0A;<category IMemento.internal.id="Java Problems (18 items)"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.allSeverityField="300" org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.allSeverityField"/>
@@ -62,8 +82,8 @@
 <view id="org.eclipse.ui.views.PropertySheet" partName="Properties"/>
 <view id="org.eclipse.search.ui.views.SearchView" partName="Search">
 <viewState isPinned="false">
-<view IMemento.internal.id="org.eclipse.search.text.FileSearchResultPage" org.eclipse.search.lastActivation="1" org.eclipse.search.resultpage.layout="2" org.eclipse.search.resultpage.limit="1000" org.eclipse.search.resultpage.sorting="2"/>
 <view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
+<view IMemento.internal.id="org.eclipse.search.text.FileSearchResultPage" org.eclipse.search.lastActivation="1" org.eclipse.search.resultpage.layout="2" org.eclipse.search.resultpage.limit="1000" org.eclipse.search.resultpage.sorting="2"/>
 </viewState>
 </view>
 <view id="org.eclipse.datatools.connectivity.DataSourceExplorerNavigator" partName="Data Source Explorer"/>
@@ -123,7 +143,7 @@
 </view>
 <view id="org.eclipse.wst.server.ui.ServersView" partName="Servers"/>
 </views>
-<perspectives activePart="org.eclipse.search.ui.views.SearchView" activePerspective="org.eclipse.jst.j2ee.J2EEPerspective">
+<perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.jst.j2ee.J2EEPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.jst.j2ee.internal.perspective.J2EEPerspective" id="org.eclipse.jst.j2ee.J2EEPerspective" label="Java EE"/>
 <alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
@@ -367,7 +387,170 @@
 </perspective>
 </perspectives>
 <workingSets/>
-<navigationHistory/>
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/order-consumer/src/test/java/org/switchyard/quickstarts/demo/multiapp/consumer/OrderIntakeClient.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/restful-order/src/main/java/com/restfully/shop/services/InfinispanResource.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/restful-order/src/main/java/com/restfully/shop/services/JmsResource.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/order-service/src/main/java/org/switchyard/quickstarts/demo/multiapp/service/OrderServiceBean.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.orangevolt.xslt.editor.XMLEditor" path="/order-consumer/pom.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.orangevolt.xslt.editor.XMLEditor" path="/order-service/pom.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.orangevolt.xslt.editor.XMLEditor" path="/artifacts/pom.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.orangevolt.xslt.editor.XMLEditor" path="/caching/pom.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.orangevolt.xslt.editor.XMLEditor" path="/restful-order/pom.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/caching/src/main/java/org/judcon/CachingService.java"/>
+</editors>
+<item historyLabel="JmsResource.java" index="2">
+<position/>
+</item>
+<item historyLabel="OrderServiceBean.java" index="3">
+<position info="not_deleted" x="1874" y="0"/>
+</item>
+<item historyLabel="OrderIntakeClient.java" index="0">
+<position info="not_deleted" x="3718" y="0"/>
+</item>
+<item historyLabel="OrderIntakeClient.java" index="0">
+<position info="not_deleted" x="3668" y="0"/>
+</item>
+<item historyLabel="JmsResource.java" index="2">
+<position info="not_deleted" x="4625" y="0"/>
+</item>
+<item historyLabel="pom.xml" index="4">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="OrderServiceBean.java" index="3">
+<position info="not_deleted" x="1874" y="0"/>
+</item>
+<item historyLabel="pom.xml" index="5">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="pom.xml" index="6">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="pom.xml" index="7">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="pom.xml" index="8">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="pom.xml" index="7">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="pom.xml" index="6">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="pom.xml" index="5">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="OrderServiceBean.java" index="3">
+<position info="not_deleted" x="1874" y="0"/>
+</item>
+<item historyLabel="OrderIntakeClient.java" index="0">
+<position info="not_deleted" x="5418" y="0"/>
+</item>
+<item historyLabel="JmsResource.java" index="2">
+<position info="not_deleted" x="4625" y="0"/>
+</item>
+<item historyLabel="InfinispanResource.java" index="1">
+<position info="not_deleted" x="2038" y="0"/>
+</item>
+<item historyLabel="InfinispanResource.java" index="1">
+<position info="not_deleted" x="1344" y="13"/>
+</item>
+<item historyLabel="JmsResource.java" index="2">
+<position/>
+</item>
+<item historyLabel="JmsResource.java" index="2">
+<position info="not_deleted" x="1753" y="0"/>
+</item>
+<item historyLabel="OrderIntakeClient.java" index="0">
+<position info="not_deleted" x="5418" y="0"/>
+</item>
+<item historyLabel="JmsResource.java" index="2">
+<position info="not_deleted" x="1847" y="0"/>
+</item>
+<item historyLabel="OrderIntakeClient.java" index="0">
+<position info="not_deleted" x="4510" y="0"/>
+</item>
+<item historyLabel="JmsResource.java" index="2">
+<position info="not_deleted" x="1847" y="0"/>
+</item>
+<item historyLabel="OrderIntakeClient.java" index="0">
+<position info="not_deleted" x="4510" y="0"/>
+</item>
+<item historyLabel="OrderIntakeClient.java" index="0">
+<position info="not_deleted" x="5443" y="0"/>
+</item>
+<item historyLabel="OrderIntakeClient.java" index="0">
+<position/>
+</item>
+<item historyLabel="OrderIntakeClient.java" index="0">
+<position info="not_deleted" x="5374" y="0"/>
+</item>
+<item historyLabel="JmsResource.java" index="2">
+<position info="not_deleted" x="1847" y="0"/>
+</item>
+<item historyLabel="JmsResource.java" index="2">
+<position info="not_deleted" x="1976" y="0"/>
+</item>
+<item historyLabel="JmsResource.java" index="2">
+<position info="not_deleted" x="1988" y="0"/>
+</item>
+<item historyLabel="OrderIntakeClient.java" index="0">
+<position info="not_deleted" x="5651" y="0"/>
+</item>
+<item historyLabel="JmsResource.java" index="2">
+<position info="not_deleted" x="1988" y="0"/>
+</item>
+<item historyLabel="InfinispanResource.java" index="1">
+<position info="not_deleted" x="975" y="23"/>
+</item>
+<item historyLabel="JmsResource.java" index="2">
+<position info="not_deleted" x="1399" y="0"/>
+</item>
+<item historyLabel="InfinispanResource.java" index="1">
+<position info="not_deleted" x="1033" y="31"/>
+</item>
+<item historyLabel="OrderServiceBean.java" index="3">
+<position info="not_deleted" x="1874" y="0"/>
+</item>
+<item historyLabel="JmsResource.java" index="2">
+<position info="not_deleted" x="1399" y="0"/>
+</item>
+<item historyLabel="JmsResource.java" index="2">
+<position info="not_deleted" x="1817" y="0"/>
+</item>
+<item historyLabel="InfinispanResource.java" index="1">
+<position info="not_deleted" x="1610" y="0"/>
+</item>
+<item historyLabel="CachingService.java" index="9">
+<position info="not_deleted" x="1326" y="11"/>
+</item>
+<item historyLabel="InfinispanResource.java" index="1">
+<position info="not_deleted" x="1610" y="0"/>
+</item>
+<item historyLabel="JmsResource.java" index="2">
+<position info="not_deleted" x="1817" y="0"/>
+</item>
+<item historyLabel="JmsResource.java" index="2">
+<position info="not_deleted" x="1816" y="0"/>
+</item>
+<item historyLabel="InfinispanResource.java" index="1">
+<position info="not_deleted" x="1465" y="466"/>
+</item>
+<item historyLabel="JmsResource.java" index="2">
+<position info="not_deleted" x="2546" y="0"/>
+</item>
+<item historyLabel="OrderIntakeClient.java" index="0">
+<position/>
+</item>
+<item historyLabel="InfinispanResource.java" index="1">
+<position info="not_deleted" x="1465" y="466"/>
+</item>
+<item active="true" historyLabel="OrderIntakeClient.java" index="0">
+<position/>
+</item>
+</navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
 <workbenchWindowAdvisor/>
@@ -385,6 +568,30 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CachingService.java" tooltip="caching/src/main/java/org/judcon/CachingService.java">
+<persistable path="/caching/src/main/java/org/judcon/CachingService.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="InfinispanResource.java" tooltip="restful-order/src/main/java/com/restfully/shop/services/InfinispanResource.java">
+<persistable path="/restful-order/src/main/java/com/restfully/shop/services/InfinispanResource.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.orangevolt.xslt.editor.XMLEditor" name="pom.xml" tooltip="restful-order/pom.xml">
+<persistable path="/restful-order/pom.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.orangevolt.xslt.editor.XMLEditor" name="pom.xml" tooltip="caching/pom.xml">
+<persistable path="/caching/pom.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.orangevolt.xslt.editor.XMLEditor" name="pom.xml" tooltip="artifacts/pom.xml">
+<persistable path="/artifacts/pom.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.orangevolt.xslt.editor.XMLEditor" name="pom.xml" tooltip="order-service/pom.xml">
+<persistable path="/order-service/pom.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.orangevolt.xslt.editor.XMLEditor" name="pom.xml" tooltip="order-consumer/pom.xml">
+<persistable path="/order-consumer/pom.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="OrderServiceBean.java" tooltip="order-service/src/main/java/org/switchyard/quickstarts/demo/multiapp/service/OrderServiceBean.java">
+<persistable path="/order-service/src/main/java/org/switchyard/quickstarts/demo/multiapp/service/OrderServiceBean.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="OrderIntakeClient.java" tooltip="order-consumer/src/test/java/org/switchyard/quickstarts/demo/multiapp/consumer/OrderIntakeClient.java">
 <persistable path="/order-consumer/src/test/java/org/switchyard/quickstarts/demo/multiapp/consumer/OrderIntakeClient.java"/>
 </file>

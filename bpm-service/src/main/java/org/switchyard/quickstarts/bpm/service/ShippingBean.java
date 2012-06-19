@@ -12,6 +12,7 @@ public class ShippingBean implements org.switchyard.quickstarts.bpm.service.Ship
 
     @Override
     public OrderAck ship(Order order) {
+    	System.out.println("ShippingBean shipping: " + order);
         OrderAck ack = new OrderAck();
         ack.setAccepted(true);
         ack.setOrderId(order.getOrderId());

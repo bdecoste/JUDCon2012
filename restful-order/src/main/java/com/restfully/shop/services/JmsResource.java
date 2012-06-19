@@ -66,7 +66,6 @@ public class JmsResource {
 			sendMessageOverJMS(order);
 			Response response = Response.created(URI.create("/jms/" + order.getId()))
 					.build();
-			System.out.println("!!! response " + response);
 			return response;
 		} catch (Exception e){
 			throw new RuntimeException(e);
@@ -77,7 +76,7 @@ public class JmsResource {
 	@Path("{id}")
 	@Produces("application/xml")
 	public StreamingOutput getOrder(@PathParam("id") String id) {
-		System.out.println("!!! GET");
+		System.out.println("--- RESTful JmsResource received a GET requesting order: " + id );
 		final Order order = (Order)caching.get(id);
 		if (order == null) {
 			throw new WebApplicationException(Response.Status.NOT_FOUND);
