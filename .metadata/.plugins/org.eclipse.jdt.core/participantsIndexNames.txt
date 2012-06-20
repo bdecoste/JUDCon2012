@@ -1,3 +1,0 @@
-INDEX VERSION 1.126
-/Volumes/linux/workspaces/JUDCon2012/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3021620660.index
-/restful-order/src/test/java
