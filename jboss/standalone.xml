@@ -37,18 +37,11 @@
     </extensions>
 
     <management>
-<security-realms>
-<security-realm name="ManagementRealm">
-<authentication>
-<properties path="${env.OPENSHIFT_DATA_DIR}mgmt-users.properties"/> <!-- relative-to="${env.OPENSHIFT_DATA_DIR}"/-->
-</authentication>
-</security-realm>
-</security-realms>
         <management-interfaces>
-            <native-interface security-realm="ManagementRealm">
+            <native-interface >
                 <socket-binding native="management-native"/>
             </native-interface>
-            <http-interface security-realm="ManagementRealm">
+            <http-interface >
                 <socket-binding http="management-http"/>
             </http-interface>
         </management-interfaces>
