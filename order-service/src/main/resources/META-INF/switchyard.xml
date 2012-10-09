@@ -5,7 +5,7 @@
             <interface.wsdl interface="OrderService.wsdl#wsdl.porttype(OrderService)"/>
             <binding.soap xmlns="urn:switchyard-component-soap:config:1.0">
                 <wsdl>OrderService.wsdl</wsdl>
-                <socketAddr>127.6.58.1:18001</socketAddr>
+                <socketAddr>127.0.250.129:18001</socketAddr>
                 <contextPath>quickstart-demo-multiapp</contextPath>
             </binding.soap>
         </service>

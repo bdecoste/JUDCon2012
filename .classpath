@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="artifacts/src/main/java"/>
+	<classpathentry kind="src" path="bpm-service/src/main/java"/>
+	<classpathentry kind="src" path="bpm-service/src/test/java"/>
+	<classpathentry kind="src" path="caching/src/main/java"/>
+	<classpathentry kind="src" path="order-consumer/src/test/java"/>
+	<classpathentry kind="src" path="order-service/src/main/java"/>
+	<classpathentry kind="src" path="order-service/src/test/java"/>
+	<classpathentry kind="src" path="restful-order/src/main/java"/>
+	<classpathentry kind="src" path="rules-camel-cbr/src/main/java"/>
+	<classpathentry kind="src" path="rules-camel-cbr/src/test/java"/>
+	<classpathentry kind="src" path="web/src/main/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="caching/bin"/>
+</classpath>
