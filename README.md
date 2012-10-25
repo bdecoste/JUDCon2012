@@ -22,7 +22,7 @@
 
 9. Copy artifacts/target/OrderService.jar to the deployments directory of the .git repo
 
-10 Copy bpm-service/target/switchyard-quickstart-demo-bpm-service.jar to the deployments directory of the .git repo
+10. Copy bpm-service/target/switchyard-quickstart-demo-bpm-service.jar to the deployments directory of the .git repo
 
 11. Copy order-service/target/switchyard-quickstart-demo-multi-order-service.jar to the deployments directory of the .git repo
 
