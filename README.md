@@ -2,23 +2,21 @@
 
 ## Running the Example
 
-1. Create a tmp directory
+1. Create an OpenShift jbossas-7 instance names 'as1': rhc app create -a as1 -t jbossas-t -d
 
-2. cd into the tmp dir
+2. Create a tmp directory
 
-3. Download this git repo
+3. cd into the tmp dir
 
-4. Replace every occurence of 127.*.*.* with the value of OPENSHIFT_INTERNAL_IP in any of the projects files (e.g. .xml, .java)
+4. Clone this git repo
 
-5. Build the project: mvn clean install -Dmaven.test.skip=true
+5. Replace every occurence of 127.*.*.* with the value of OPENSHIFT_INTERNAL_IP in any of the projects files (e.g. .xml, .java)
 
-6. Build the web project: cd web & mvn clean install -Dmaven.test.skip=true
+6. Build the project: mvn clean install -Dmaven.test.skip=true
 
-7. cd ..
+7. Build the web project: cd web & mvn clean install -Dmaven.test.skip=true
 
-7. Create an OpenShift jbossas-7 instance names 'as1': rhc app create -a as1 -t jbossas-t -d
-
-8. cd as1 
+8. cd ../as1 
 
 9. Replace the default .openshift/config/standalone.xml,.openshift/action_hooks/pre_build and pom.xml file with the ones from the tmp/jboss directory
 
