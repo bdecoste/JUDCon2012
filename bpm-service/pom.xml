@@ -66,7 +66,7 @@
 							<Dependencies>deployment.OrderService.jar</Dependencies>
 						</manifestEntries>
 					</archive>
-					<outputDirectory>/home/bdecoste/OpenShift/JUDCon</outputDirectory>
+					<outputDirectory>target</outputDirectory>
 				</configuration>
 			</plugin>
 			<plugin>
