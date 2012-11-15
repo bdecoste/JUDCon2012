@@ -1,67 +1,29 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>jboss1</groupId>
-  <artifactId>jboss1</artifactId>
-  <packaging>war</packaging>
-  <version>1.0</version>
-  <name>jboss2</name>
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.6</maven.compiler.source>
-    <maven.compiler.target>1.6</maven.compiler.target>
-  </properties>
-  <dependencies>
-    <dependency>
-      <groupId>org.jboss.spec</groupId>
-      <artifactId>jboss-javaee-6.0</artifactId>
-      <version>1.0.0.Final</version>
-      <type>pom</type>
-      <scope>provided</scope>
-    </dependency>
-<dependency>
-	<groupId>org.jboss.resteasy</groupId>
-	<artifactId>resteasy-jaxrs</artifactId>
-	<version>2.3.3.Final</version>
-	<scope>provided</scope>
-</dependency>
-<dependency>
-	<groupId>junit</groupId>
-	<artifactId>junit</artifactId>
-	<version>4.1</version>
-	<scope>test</scope>
-</dependency>
-<dependency>
-	<groupId>org.switchyard.quickstarts.demos</groupId>
-	<artifactId>switchyard-quickstart-demo-multi-artifacts</artifactId>
-	<version>0.4.0.Final</version>
-</dependency>
-<dependency>
-	<groupId>org.judcon</groupId>
-	<artifactId>caching</artifactId>
-	<version>1.0</version>
-</dependency>
-  </dependencies>
-  <profiles>
-    <profile>
-     <!-- When built in OpenShift the 'openshift' profile will be used when invoking mvn. -->
-     <!-- Use this profile for any OpenShift specific customization your app will need. -->
-     <!-- By default that is to put the resulting archive into the 'deployments' folder. -->
-     <!-- http://maven.apache.org/guides/mini/guide-building-for-different-environments.html -->
-     <id>openshift</id>
-     <build>
-        <finalName>jboss1</finalName>
-        <plugins>
-          <plugin>
-            <artifactId>maven-war-plugin</artifactId>
-            <version>2.1.1</version>
-            <configuration>
-              <outputDirectory>deployments</outputDirectory>
-              <warName>ROOT</warName>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
+  <parent>
+      <groupId>org.switchyard.quickstarts</groupId>
+      <artifactId>switchyard-quickstart-parent</artifactId>
+      <version>0.4.0.Final</version>
+      <relativePath>../../pom.xml</relativePath>
+  </parent>
+  
+  <groupId>org.switchyard.quickstarts.demos</groupId>
+  <artifactId>switchyard-quickstart-demo-multiapp</artifactId>
+  <name>Quickstart Demo: Multiple Applications</name>
+  <packaging>pom</packaging>
+
+  <modules>
+       <module>artifacts</module>
+       <module>order-service</module>
+       <module>order-consumer</module>
+       <module>web</module>
+       <module>caching</module>
+       <module>bpm-service</module>
+       <module>rules-camel-cbr</module>
+       <module>restful-order</module>
+  </modules>
+  
 </project>
+
