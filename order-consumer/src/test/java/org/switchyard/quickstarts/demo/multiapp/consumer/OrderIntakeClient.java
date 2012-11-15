@@ -49,8 +49,8 @@ public final class OrderIntakeClient {
     private static final String ORDERACK_QUEUE_NAME = "OrderReplyQueue";
     private static final String RULES_QUEUE_NAME = "RulesTriggerQueue";
     
-    private static final String IP = "127.6.58.1";
-    private static final String HOSTNAME = "jboss1-wdecoste1.rhcloud.com";
+    private static final String IP = "127.0.250.129";
+    private static final String HOSTNAME = "as1-judcon.rhcloud.com";
     
     private static final String[][] TESTS = new String[][] {
         new String[] {"FF0000-ABC-123", "Red"},

@@ -23,7 +23,7 @@
 
   <groupId>org.switchyard.quickstarts.demos</groupId>
   <artifactId>switchyard-quickstart-demo-multi-order-consumer</artifactId>
-  <version>0.4.0.Final</version>
+  <version>0.6.0.Final</version>
   <packaging>jar</packaging>
   <name>Quickstart Demo: Multiple Applications - Order Consumer</name>
 
@@ -31,32 +31,32 @@
     <dependency>
       <groupId>org.switchyard</groupId>
       <artifactId>switchyard-api</artifactId>
-      <version>0.4.0.Final</version>
+      <version>0.6.0.Final</version>
     </dependency>
     <dependency>
       <groupId>org.switchyard</groupId>
       <artifactId>switchyard-plugin</artifactId>
-      <version>0.4.0.Final</version>
+      <version>0.6.0.Final</version>
     </dependency>
     <dependency>
       <groupId>org.switchyard.components</groupId>
       <artifactId>switchyard-component-bean</artifactId>
-      <version>0.4.0.Final</version>
+      <version>0.6.0.Final</version>
     </dependency>
     <dependency>
       <groupId>org.switchyard.components</groupId>
       <artifactId>switchyard-component-camel</artifactId>
-      <version>0.4.0.Final</version>
+      <version>0.6.0.Final</version>
     </dependency>
     <dependency>
       <groupId>org.switchyard.components</groupId>
       <artifactId>switchyard-component-soap</artifactId>
-      <version>0.4.0.Final</version>
+      <version>0.6.0.Final</version>
     </dependency>
     <dependency>
       <groupId>org.switchyard</groupId>
       <artifactId>switchyard-test</artifactId>
-      <version>0.4.0.Final</version>
+      <version>0.6.0.Final</version>
     </dependency>
     <dependency>
       <groupId>org.switchyard.quickstarts.demos</groupId>
@@ -115,7 +115,7 @@
       <plugin>
           <groupId>org.switchyard</groupId>
           <artifactId>switchyard-plugin</artifactId>
-          <version>0.4.0.Final</version>
+          <version>0.6.0.Final</version>
           <configuration>
             <scannerClassNames>
                   <param>org.switchyard.component.bean.config.model.BeanSwitchYardScanner</param>

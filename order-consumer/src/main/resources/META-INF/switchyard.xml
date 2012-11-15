@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <switchyard xmlns="urn:switchyard-config:switchyard:1.0">
-    <composite xmlns="http://docs.oasis-open.org/ns/opencsa/sca/200912" name="consumer-service" targetNamespace="urn:switchyard-quickstart-demo:multiapp:1.0">
+    <composite xmlns="http://docs.oasis-open.org/ns/opencsa/sca/200912" name="consumer-service" targetNamespace="urn:switchyard-quickstart-demo:multiapp:0.1.0">
         <service name="OrderInput" promote="OrderInputComponent/OrderInput">
             <binding.camel xmlns="urn:switchyard-component-camel:config:1.0" 
                 configURI="jms://OrderRequestQueue?connectionFactory=#ConnectionFactory&amp;replyTo=OrderReplyQueue"/>
@@ -12,9 +12,7 @@
         </reference>
         <component name="OrderInputComponent">
             <implementation.camel xmlns="urn:switchyard-component-camel:config:1.0">
-                <route xmlns="http://camel.apache.org/schema/spring">
-                    <to uri="switchyard://OrderWebService"/>
-                </route>
+                <xml path="META-INF/route.xml"/>
             </implementation.camel>
             <service name="OrderInput">
                 <interface.wsdl interface="OrderService.wsdl#wsdl.porttype(OrderService)"/>
