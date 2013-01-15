@@ -38,7 +38,7 @@
   
   <service name="OrderService">
     <port name="OrderServicePort" binding="tns:OrderServiceBinding">
-      <soap:address location="http://127.0.250.129:18001/quickstart-demo-multiapp/OrderService"/>
+      <soap:address location="http://127.7.3.129:8080/quickstart-demo-multiapp/OrderService"/>
     </port>
   </service>
 </definitions>

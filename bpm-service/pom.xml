@@ -7,43 +7,43 @@
 	<groupId>org.switchyard.quickstarts.demos</groupId>
 	<artifactId>switchyard-quickstart-bpm-service</artifactId>
 	<name>Quickstart : BPM Service</name>
-	<version>0.4.0.Final</version>
+	<version>0.6.0.Final</version>
 	<packaging>jar</packaging>
 
 	<properties>
-		<switchyard.version>0.4.0.Final</switchyard.version>
+		<switchyard.version>0.6.0.Final</switchyard.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.switchyard</groupId>
 			<artifactId>switchyard-api</artifactId>
-			<version>0.4.0.Final</version>
+			<version>0.6.0.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>org.switchyard</groupId>
 			<artifactId>switchyard-plugin</artifactId>
-			<version>0.4.0.Final</version>
+			<version>0.6.0.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>org.switchyard.components</groupId>
 			<artifactId>switchyard-component-bpm</artifactId>
-			<version>0.4.0.Final</version>
+			<version>0.6.0.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>org.switchyard.components</groupId>
 			<artifactId>switchyard-component-bean</artifactId>
-			<version>0.4.0.Final</version>
+			<version>0.6.0.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>org.switchyard.components</groupId>
 			<artifactId>switchyard-component-soap</artifactId>
-			<version>0.4.0.Final</version>
+			<version>0.6.0.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>org.switchyard</groupId>
 			<artifactId>switchyard-test</artifactId>
-			<version>0.4.0.Final</version>
+			<version>0.6.0.Final</version>
 		</dependency>
 	</dependencies>
 
@@ -66,13 +66,13 @@
 							<Dependencies>deployment.OrderService.jar</Dependencies>
 						</manifestEntries>
 					</archive>
-					<outputDirectory>target</outputDirectory>
+					<outputDirectory>/home/bdecoste/OpenShift/JUDCon</outputDirectory>
 				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.switchyard</groupId>
 				<artifactId>switchyard-plugin</artifactId>
-				<version>0.4.0.Final</version>
+				<version>0.6.0.Final</version>
 				<executions>
 					<execution>
 						<goals>

@@ -49,8 +49,8 @@ public final class OrderIntakeClient {
     private static final String ORDERACK_QUEUE_NAME = "OrderReplyQueue";
     private static final String RULES_QUEUE_NAME = "RulesTriggerQueue";
     
-    private static final String IP = "127.0.250.129";
-    private static final String HOSTNAME = "as1-judcon.rhcloud.com";
+    private static final String IP = "127.7.3.129";
+    private static final String HOSTNAME = "as7-judcon.rhcloud.com";
     
     private static final String[][] TESTS = new String[][] {
         new String[] {"FF0000-ABC-123", "Red"},
@@ -167,21 +167,21 @@ public final class OrderIntakeClient {
     	httpMixIn.initialize();
     	
     	// Send a SOAP request and verify the SOAP reply is what we expected
-    	String response =  httpMixIn.postString("http://" + IP + ":18001/swydws/ProcessOrder", orderTxt);
+    	String response =  httpMixIn.postString("http://" + IP + ":8080/swydws/ProcessOrder", orderTxt);
     	
     	System.out.println("  HTTP Response " + response);
     }
     
     protected static void testHttp() throws Exception {
     	
-    	System.out.println("*** Testing SwitchYard via HTTP over Port-Forwarding ***");
+    	System.out.println("*** Testing SwitchYard via HTTP ***");
     	
     	String orderTxt = readFileContent("/home/bdecoste/workspaces/JUDCon2012/order-service/src/test/resources/xml/soap-request.xml");
     	
     	HTTPMixIn httpMixIn = new HTTPMixIn();
     	httpMixIn.initialize();
     	
-    	String response = httpMixIn.postString("http://" + IP + ":18001/quickstart-demo-multiapp/OrderService", orderTxt);
+    	String response = httpMixIn.postString("http://" + HOSTNAME + ":80/quickstart-demo-multiapp/OrderService", orderTxt);
     	
     	System.out.println("  HTTP Response " + response);
     }

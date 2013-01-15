@@ -52,7 +52,7 @@
   </wsdl:binding>
   <wsdl:service name="ProcessOrder">
     <wsdl:port binding="tns:ProcessOrderSOAP" name="ProcessOrderSOAP">
-      <soap:address location="http://127.0.250.129:18001/swydws/ProcessOrder"/>
+      <soap:address location="http://127.7.3.129:8080/swydws/ProcessOrder"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

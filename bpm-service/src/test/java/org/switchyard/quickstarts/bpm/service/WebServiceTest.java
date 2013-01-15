@@ -22,7 +22,7 @@ public class WebServiceTest {
     public void webServiceShipped() throws Exception {
     	// Send a SOAP request and verify the SOAP reply is what we expected
         httpMixIn.postResourceAndTestXML(
-        		"http://localhost:18001/swydws/ProcessOrder",
+        		"http://localhost:8080/swydws/ProcessOrder",
         		"/xml/soap-request.xml",
         		"/xml/soap-response.xml");
     }
